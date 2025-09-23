@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.products {
+/* width: 100%; */
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+/* align-items: center; */
+}
+
+
+
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.notFound p {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #666;
+  margin-top: 40px;
+}
+
+.notFound img {
+
+    width: 500px;
+}
