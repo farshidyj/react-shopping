@@ -1,10 +1,9 @@
+import SearchBox from "../components/SearchBox";
 import Skeleton from "react-loading-skeleton";
 import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
-import { CiSearch } from "react-icons/ci";
 import { FaListUl } from "react-icons/fa6";
 import { useProducts } from "../context/ProductContext";
-import styles from "./ProductsPage.module.css";
 import { useEffect, useState } from "react";
 import cat from "../img/cat.png";
 import {
@@ -14,6 +13,7 @@ import {
   getInitialQuery,
 } from "../helper/helper";
 import { useSearchParams } from "react-router-dom";
+import styles from "./ProductsPage.module.css";
 
 function ProductsPage() {
   const products = useProducts();
@@ -36,15 +36,15 @@ function ProductsPage() {
   
   useEffect(() => {
     setSearchParams(query);
-    setSearch(query.search)
+    setSearch(query.search || "")
     let finalProducts = searchProducts(products, query.search);
     finalProducts = filterProducts(finalProducts, query.category);
     setDisplayed(finalProducts);
   }, [query]);
 
-  const searchHandler = () => {
-    setQuery((query) => createQueryObject(query, { search: search }));
-  };
+  // const searchHandler = () => {
+  //   setQuery((query) => createQueryObject(query, { search: search }));
+  // };
 
   const categoryHandler = (event) => {
     const category = event.target.innerText.toLowerCase();
@@ -53,17 +53,8 @@ function ProductsPage() {
 
   return (
     <>
-      <div>
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
-        />
-        <button onClick={searchHandler}>
-          <CiSearch />
-        </button>
-      </div>
+      <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
+
       <div className={styles.container}>
         <div className={styles.products}>
           {loading && <SkeletonCard />}
