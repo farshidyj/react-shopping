@@ -6,6 +6,7 @@ function Sidebar({setQuery}) {
 
 
       const categoryHandler = (event) => {
+        if (event.target.tagName==="UL") return;
     const category = event.target.innerText.toLowerCase();
     setQuery((query) => createQueryObject(query, { category: category }));
   };
@@ -13,7 +14,7 @@ function Sidebar({setQuery}) {
 
   return (
             <div className={styles.sidebar}>
-          <div className="category">
+          <div className={styles.category}>
             <FaListUl />
             <span>Category</span>
           </div>

@@ -10,6 +10,11 @@ function SearchBox({search,setSearch,setQuery}) {
     setQuery((query) => createQueryObject(query, { search: search }));
   };
 
+  const keyDownHandler = (event)=>{
+    if (event.key==="Enter") {searchHandler()};
+
+
+  }
   
   return (
     <div className={styles.search}>
@@ -18,6 +23,7 @@ function SearchBox({search,setSearch,setQuery}) {
         placeholder="Search"
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
+        onKeyDown={keyDownHandler}
       />
       <button onClick={searchHandler}>
         <CiSearch />
