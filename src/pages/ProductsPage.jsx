@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import { FaListUl } from "react-icons/fa6";
 import { useProducts } from "../context/ProductContext";
 import { useEffect, useState } from "react";
+import cat from "../img/cat.png";
 import {
   searchProducts,
   filterProducts,
