@@ -11,7 +11,7 @@ function SearchBox({search,setSearch,setQuery}) {
   };
 
   const keyDownHandler = (event)=>{
-    if (event.key==="Enter") {searchHandler()};
+    if (event.key==="Enter") searchHandler();
 
 
   }
