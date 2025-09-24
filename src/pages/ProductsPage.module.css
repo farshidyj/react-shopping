@@ -5,16 +5,16 @@
 }
 
 .products {
-/* width: 100%; */
+width: 80%;
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
+justify-content: space-between;
 /* align-items: center; */
 }
 
 
 
-
+/* 
 .notFound {
     display: flex;
     flex-direction: column;
@@ -35,4 +35,4 @@ justify-content: center;
 .notFound img {
 
     width: 500px;
-}
+} */
