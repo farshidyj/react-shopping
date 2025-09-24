@@ -12,7 +12,7 @@ import {
   createQueryObject,
   getInitialQuery,
 } from "../helper/helper";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams ,Navigate} from "react-router-dom";
 import styles from "./ProductsPage.module.css";
 
 function ProductsPage() {
@@ -23,20 +23,19 @@ function ProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
+  useEffect(() => {
     products.length > 0 && setLoading(false);
-   }, [products]);
+  }, [products]);
 
   useEffect(() => {
     setDisplayed(products);
-  
+
     setQuery(getInitialQuery(searchParams));
-    
   }, [products]);
-  
+
   useEffect(() => {
     setSearchParams(query);
-    setSearch(query.search || "")
+    setSearch(query.search || "");
     let finalProducts = searchProducts(products, query.search);
     finalProducts = filterProducts(finalProducts, query.category);
     setDisplayed(finalProducts);
@@ -51,6 +50,12 @@ function ProductsPage() {
     setQuery((query) => createQueryObject(query, { category: category }));
   };
 
+
+  if (!loading && displayed.length === 0) {
+    return <Navigate to="/404" replace />;
+  }
+
+
   return (
     <>
       <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
@@ -59,14 +64,14 @@ function ProductsPage() {
         <div className={styles.products}>
           {loading && <SkeletonCard />}
 
-          <div className={styles.notFoundParent}>
-            {!loading && displayed.length === 0 && (
+          {/* <div className={styles.notFoundParent}>
+            { !loading && displayed.length === 0 && (
               <div className={styles.notFound}>
                 <img src={cat} alt="cat" />
                 <p> ... پشمااام ! پیدا نشد </p>
               </div>
             )}
-          </div>
+          </div> */}
 
           {displayed.map((product) => (
             <Card key={product.id} data={product} />
