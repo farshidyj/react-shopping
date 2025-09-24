@@ -56,21 +56,13 @@ function ProductsPage() {
         <div className={styles.products}>
           {loading && <SkeletonCard />}
 
-          {/* <div className={styles.notFoundParent}>
-            { !loading && displayed.length === 0 && (
-              <div className={styles.notFound}>
-                <img src={cat} alt="cat" />
-                <p> ... پشمااام ! پیدا نشد </p>
-              </div>
-            )}
-          </div> */}
 
           {displayed.map((product) => (
             <Card key={product.id} data={product} />
           ))}
         </div>
 
-        <Sidebar setQuery={setQuery} />
+        <Sidebar query={query} setQuery={setQuery} />
       </div>
     </>
   );
