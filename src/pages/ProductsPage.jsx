@@ -2,17 +2,17 @@ import SearchBox from "../components/SearchBox";
 import Skeleton from "react-loading-skeleton";
 import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
-import { FaListUl } from "react-icons/fa6";
+
 import { useProducts } from "../context/ProductContext";
 import { useEffect, useState } from "react";
 import {
   searchProducts,
   filterProducts,
-  createQueryObject,
   getInitialQuery,
 } from "../helper/helper";
-import { useSearchParams ,Navigate} from "react-router-dom";
+import { useSearchParams, Navigate } from "react-router-dom";
 import styles from "./ProductsPage.module.css";
+import Sidebar from "../components/Sidebar";
 
 function ProductsPage() {
   const products = useProducts();
@@ -44,16 +44,9 @@ function ProductsPage() {
   //   setQuery((query) => createQueryObject(query, { search: search }));
   // };
 
-  const categoryHandler = (event) => {
-    const category = event.target.innerText.toLowerCase();
-    setQuery((query) => createQueryObject(query, { category: category }));
-  };
-
-
   if (!loading && displayed.length === 0) {
     return <Navigate to="/404" replace />;
   }
-
 
   return (
     <>
@@ -77,20 +70,7 @@ function ProductsPage() {
           ))}
         </div>
 
-        <div className={styles.sidebar}>
-          <div className="category">
-            <FaListUl />
-            <span>Category</span>
-          </div>
-
-          <ul onClick={categoryHandler}>
-            <li>All</li>
-            <li>Electronics</li>
-            <li>Jewelery</li>
-            <li>Men's clothing</li>
-            <li>Women's clothing</li>
-          </ul>
-        </div>
+        <Sidebar setQuery={setQuery} />
       </div>
     </>
   );
