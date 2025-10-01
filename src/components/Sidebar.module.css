@@ -1,22 +1,26 @@
 .sidebar {
-  width: 170px;
-
+  min-width: 170px;
   margin: 20px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border: rgb(225, 225, 225) 2px dashed;
   height: fit-content;
   padding: 20px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
 .category {
-  margin-left: 40px;
-  color: rgb(255, 98, 0);
+  /* margin-left: 40px; */
+  color:  rgb(255, 148, 55);
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 18px;
+  margin-left: 5px;
 }
 
 .sidebar span {
@@ -27,15 +31,19 @@
 .sidebar li {
   list-style: none;
   padding: 5px;
+  /* padding-left: 10px; */
+  display: flex;
+  align-items: center;
+
 }
 .sidebar li:hover {
-  padding: 5px;
 
-  color: rgb(255, 128, 128);
+  color:  rgb(255, 148, 55);
 }
 
 .selected {
   background-color: rgba(255, 154, 65, 0.541);
   color: white;
   border-radius:5px;
+  
 }

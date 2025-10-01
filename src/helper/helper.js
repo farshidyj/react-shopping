@@ -56,6 +56,17 @@ const getInitialQuery = (searchParams) => {
   return query;
 };
 
+  const productQuantity = (state, id) => {
+    const index = state.selectedItems.findIndex((item) => item.id === id);
+    if (index === -1) return 0;
+    else {
+      return state.selectedItems[index].quantity;
+    }
+  };
+
+
+
+
 const sumProducts = (products) => {
   const itemsCounter = products.reduce(
     (items, product) => items + product.quantity,
@@ -65,7 +76,7 @@ const sumProducts = (products) => {
     (total, product) => total + product.price * product.quantity,
     0
   );
- return { itemsCounter, total}
+  return { itemsCounter, total };
 };
 
 export {
@@ -75,4 +86,5 @@ export {
   createQueryObject,
   getInitialQuery,
   sumProducts,
+  productQuantity
 };

@@ -1,0 +1,70 @@
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  height: 50px;
+  align-items: center;
+  background-color: rgb(255, 148, 55);
+  border-radius: 8px;
+}
+
+.shopName {
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cartIcon {
+  background-color: white;
+  margin-right: 40px;
+  font-size: 1.6rem;
+  line-height: 20px;
+  padding:4px 5px;
+  color: rgb(255, 148, 55);
+  border-radius: 8px;
+  text-align: center;
+  
+
+}
+
+.cartIcon span {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 10px;
+  right: 75px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.377);
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  line-height: 17px;
+  border-radius: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footerContainer {
+  border-radius: 8px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  background-color: rgb(255, 148, 55);
+}
+
+.footerContainer h4 {
+  font-weight: 100;
+  color: white;
+}
